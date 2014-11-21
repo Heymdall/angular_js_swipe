@@ -31,8 +31,10 @@ function Carousel(element)
         this.init = function() {
             setPaneDimensions();
 
-            $(window).on("load resize orientationchange", function() {
+            $(window).on("load resize", function() {
                 setPaneDimensions();
+            }).on("orientationchange", function () {
+                setTimeout(setPaneDimensions, 200);
             });
         };
 
